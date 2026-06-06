@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES — Brand Design System
+   Hercules Roof Systems — Dark Industrial Premium
+   ============================================================ */
+:root {
+  /* Core Brand Colors */
+  --color-black: #0A0A0A;
+  --color-charcoal: #111111;
+  --color-steel: #1A2230;
+  --color-steel-light: #243040;
+  --color-crimson: #C41E3A;
+  --color-fire: #E02020;
+  --color-ember: #FF3333;
+  --color-crimson-dark: #8B0000;
+
+  /* Light Section Colors */
+  --color-stone: #F8F4EE;
+  --color-sand: #EDE8DF;
+  --color-warm: #D4C9B8;
+
+  /* Typography */
+  --color-text-primary: #F0EDE8;
+  --color-text-secondary: #A8A298;
+  --color-text-muted: #5A6170;
+  --color-text-dark: #0A0A0A;
+
+  /* Transitions */
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Spacing scale */
+  --spacing-section: 5rem;
+  --spacing-section-lg: 7.5rem;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-text-primary);
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   TYPOGRAPHY SYSTEM
+   ============================================================ */
+.display-xl {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.93;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.display-lg {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.97;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.display-md {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: clamp(1.875rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.display-sm {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: clamp(1.375rem, 2.5vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.overline {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-crimson);
+  display: block;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-charcoal); }
+::-webkit-scrollbar-thumb { background: var(--color-crimson); border-radius: 2px; }
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection { background: var(--color-crimson); color: white; }
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+:focus-visible { outline: 2px solid var(--color-crimson); outline-offset: 3px; }
+
+/* ============================================================
+   BUTTON SYSTEM — Premium grade
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.25rem;
+  background: var(--color-crimson);
+  color: #fff;
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-crimson);
+  cursor: pointer;
+  transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-fire);
+  border-color: var(--color-fire);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(196,30,58,0.35);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.25rem;
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.7);
+  transform: translateY(-1px);
+}
+
+.btn-outline-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  color: var(--color-crimson);
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-crimson);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-outline-red:hover {
+  background: var(--color-crimson);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(196,30,58,0.25);
+}
+
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1.1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.9);
+  font-family: var(--font-barlow), sans-serif;
+  font-size: 0.9rem;
+  transition: border-color var(--transition-base), background var(--transition-base);
+  appearance: none;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-crimson);
+  background: rgba(255,255,255,0.06);
+}
+
+.form-input::placeholder { color: rgba(255,255,255,0.28); }
+
+.form-label {
+  display: block;
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.4rem;
+}
+
+/* ============================================================
+   CARD BASE
+   ============================================================ */
+.card-dark {
+  background: var(--color-steel);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card-dark:hover {
+  border-color: rgba(196,30,58,0.25);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(196,30,58,0.08);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   PLACEHOLDER BACKGROUNDS
+   ============================================================ */
+.hero-placeholder {
+  background: linear-gradient(135deg, #0D1520 0%, #131B24 50%, #0D1218 100%);
+}
+
+.project-placeholder {
+  background: linear-gradient(135deg, #1A2230 0%, #243040 100%);
+}
+
+/* ============================================================
+   GEOMETRIC TEXTURE PATTERNS
+   ============================================================ */
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ============================================================
+   DIVIDERS
+   ============================================================ */
+.divider-crimson {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196,30,58,0.6) 30%, rgba(196,30,58,0.6) 70%, transparent);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196,30,58,0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(196,30,58,0.2); }
+}
+
+.animate-fade-up { animation: fadeUp 0.7s ease-out both; }
+.animate-fade-in { animation: fadeIn 0.5s ease-out both; }
+.animate-scale-in { animation: scaleIn 0.5s ease-out both; }
+.animate-slide-right { animation: slideRight 0.6s ease-out both; }
+.animate-glow { animation: glowPulse 3s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ============================================================
+   SECTION BACKGROUNDS — Consistent dark palette
+   ============================================================ */
+.bg-void    { background-color: #0A0A0A; }
+.bg-dark    { background-color: #0F0F0F; }
+.bg-charcoal { background-color: #111111; }
+.bg-panel   { background-color: #161B24; }
+.bg-steel   { background-color: #1A2230; }
+.bg-steel-light { background-color: #243040; }
+
+/* ============================================================
+   LUXURY HERO ACCENT ELEMENTS
+   ============================================================ */
+.hero-line-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, transparent 0%, #C41E3A 25%, #C41E3A 75%, transparent 100%);
+}
+
+.hero-line-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C41E3A 0%, transparent 60%);
+}
+
+/* ============================================================
+   CRIMSON GRADIENT TEXT
+   ============================================================ */
+.text-gradient-red {
+  background: linear-gradient(135deg, #E02020 0%, #C41E3A 50%, #8B0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
